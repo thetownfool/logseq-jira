@@ -13,7 +13,9 @@ import { db } from "./db";
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin";
 
 // Add Axios
-const axios = Axios.create();
+const axios = Axios.create({
+  httpsAgent: new (require('https').Agent)({ rejectUnauthorized: false })
+});
 
 type Data = Record<
   string,
