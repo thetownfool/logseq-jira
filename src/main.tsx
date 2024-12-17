@@ -2,6 +2,7 @@ import "@logseq/libs";
 import React from "react";
 import * as ReactDOM from "react-dom/client";
 import Axios, { AxiosError } from 'axios';
+import https from 'https';
 
 import App from "./App";
 import "./index.css";
@@ -14,7 +15,7 @@ import { BlockEntity } from "@logseq/libs/dist/LSPlugin";
 
 // Add Axios
 const axios = Axios.create({
-  httpsAgent: new (require('https').Agent)({ rejectUnauthorized: false })
+  httpsAgent: new https.Agent({ rejectUnauthorized: false })
 });
 
 type Data = Record<
